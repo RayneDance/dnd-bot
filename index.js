@@ -33,23 +33,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
 
-           case 'roll':
-
-	      if(dice){
-              bot.sendMessage({
-                 to: channelID,
-                 message: dice
-              });
-		}else{
-		bot.sendMessage({
-			to: channelID,
-			message: 'No dice value(IE: 1d6)'
-		});
-}
-	   break;
-
-
-            // Just add any case commands if you want to..
-         }
-     }
+            case 'roll':
+ 
+ 	      if(dice){
+               bot.sendMessage({
+                  to: channelID,
+                  message: dice
+                });
+ 		}else{
+  		bot.sendMessage({
+  			to: channelID,
+ 			message: 'No dice value(IE: 1d6)'
+ 		});
+ } 
+ 	   break;
+ 
+ 
+             // Just add any case commands if you want to..
+          }
+      }
 });
