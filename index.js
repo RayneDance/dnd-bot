@@ -66,8 +66,8 @@ var results = '';
 	if(Number(args[0]) === 1){
 		results = Math.floor(Math.random() * args[1])+1;
 	}else{
-		for(var i=0; i++; i < Number(args[0])){
-			echo 'i='+i;
+		for(var i=0; i=i+1; i < Number(args[0])){
+			
 			if(i>0){
 				results = results.concat(', ', Math.floor(Math.random() * args[1])+1);
 			}else{ results = Math.floor(Math.random() * args[1])+1;}
