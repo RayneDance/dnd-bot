@@ -75,11 +75,13 @@ function rolldice(dice){
 		//Leave function on poorly formatted request.
 		if(isNaN(Number(args[0])) ||
 		isNaN(Number(args[1])) ||
-		args.length === 1){
+		args.length === 1 ||
+		args.length > 2){
 			return 'Bad format';	
 		}
+		
 	
-	//Minimizing rolls just to keep things clean
+		//Minimizing rolls just to keep things clean
 		if(Number(args[0]) > 10){
 			return 'Cannot roll more than 10 dice';
 		}
@@ -89,8 +91,8 @@ function rolldice(dice){
 			return 'Please submit a smaller number';
 		}
 	
-	//If we're only rolling 1d#, handle it.
-		if(Number(args[0]) === 1){
+		//If we're only rolling 1d#, handle it.
+		if(Number(args[0]) === 1 || args[0] = null){
 			results = "Rolled: " + (Number(RandNumber(args[1]) + Number(sub)));
 		}else{
 			//handling for rolling more than 1 dice.
