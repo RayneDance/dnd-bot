@@ -60,12 +60,15 @@ function rolldice(dice){
 
 	//So users can 1d6 or 1D6
 	dice = dice.toUpperCase();
-
-	//split and setup vars
+	
 	var args = dice.split('D');
+	
+	if(typeof args[1] == 'undefined') args[1] = toString(args);
+	
 	var sub = args[1].split('+');
 	var results = '';
 	var total = 0;	
+
 		
 		if(sub.length > 1){
 			args[1] = sub[0];
@@ -93,7 +96,7 @@ function rolldice(dice){
 	
 		//If we're only rolling 1d#, handle it.
 		if(Number(args[0]) === 1 || args[0] == ""){
-			results = "Rolled: " + Number(RandNumber(args[1])) + "+" sub;
+			results = "Rolled: " + Number(RandNumber(args[1])) + "+" + sub;
 		}else{
 			//handling for rolling more than 1 dice.
 			for(var i=0; i < Number(args[0]); i = i+1){
