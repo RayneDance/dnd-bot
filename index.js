@@ -92,8 +92,8 @@ function rolldice(dice){
 		}
 	
 		//If we're only rolling 1d#, handle it.
-		if(Number(args[0]) === 1 || args[0] = null){
-			results = "Rolled: " + (Number(RandNumber(args[1]) + Number(sub)));
+		if(Number(args[0]) === 1 || args[0] == ""){
+			results = "Rolled: " + Number(RandNumber(args[1])) + "+" sub;
 		}else{
 			//handling for rolling more than 1 dice.
 			for(var i=0; i < Number(args[0]); i = i+1){
