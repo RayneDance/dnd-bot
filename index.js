@@ -69,6 +69,7 @@ function rolldice(dice){
 		
 		if(sub.length > 1){
 			args[1] = sub[0];
+			sub = sub[1];
 		}else{sub = 0;}
 		
 		//Leave function on poorly formatted request.
@@ -90,7 +91,7 @@ function rolldice(dice){
 	
 	//If we're only rolling 1d#, handle it.
 		if(Number(args[0]) === 1){
-			results = "Rolled: " + (RandNumber(args[1], 1) + sub);
+			results = "Rolled: " + (Number(RandNumber(args[1]) + Number(sub)));
 		}else{
 			//handling for rolling more than 1 dice.
 			for(var i=0; i < Number(args[0]); i = i+1){
@@ -105,10 +106,13 @@ function rolldice(dice){
 					total = total + hold;
 					results = results + ', '+ hold.toString(10);
 				}else{ 
-					results = RandNumber(args[1]));
+					results = RandNumber(args[1]);
 					total = results;
 					 }
 		}
+	var jssucks = parseInt(total);
+
+	total = jssucks + parseInt(sub);
 	results = 'Total: ' + total.toString(10) + ', Rolls:' + results;
 	}
 	
@@ -119,7 +123,7 @@ function RandNumber(lim, str){
 	
 		str = str || false;
 		var randvalue = 0;
-		randvalue = Math.floor(Math.random() * lim)+1l
+		randvalue = Math.floor(Math.random() * lim)+1;
 		
 		if(str){
 			return randvalue.toString(10);
