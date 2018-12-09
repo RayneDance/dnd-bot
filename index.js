@@ -63,6 +63,10 @@ var results = '';
 		return 'Bad format';	
 	}
 
+	if(Number(args[0]) > 10){
+		return 'Cannot roll more than 10 dice';
+	}
+
 	if(Number(args[0]) === 1){
 		results = Math.floor(Math.random() * args[1])+1;
 	}else{
