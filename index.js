@@ -15,7 +15,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
-       
+        var dice = false;
+
+        if(args.length > 1){
+
+	 dice = args[1];
+	};
+
         args = args.splice(1);
         switch(cmd) {
             // !ping
@@ -25,12 +31,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
-              
+
            case 'roll':
+
+	      if(dice){
               bot.sendMessage({
                  to: channelID,
-                 message: args[1]
+                 message: dice
               });
+		}else{
+		bot.sendMessage({
+			to: channelID,
+			message: 'No dice value(IE: 1d6)'
+		});
+}
+	   break;
+
+
             // Just add any case commands if you want to..
          }
      }
