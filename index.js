@@ -65,7 +65,7 @@ function rolldice(dice){
 dice = dice.toUpperCase();
 var args = dice.split('D');
 var results = '';
-	
+var total = 0;	
 	if(args.length === 1){
 		return 'Bad format';	
 	}
@@ -77,7 +77,7 @@ var results = '';
 	if(Number(args[0]) === 1){
 		results = Math.floor(Math.random() * args[1])+1;
 	}else{
-		var total = 0;
+	
 		for(var i=0; i < Number(args[0]); i = i+1){
 			var hold = 0;
 			
@@ -90,7 +90,8 @@ var results = '';
 				total = results;
 			     }
 		}
-	}
 	results = 'Total: ' + total.toString(10) + ', rolls:' + results;
+	}
+	
 	return results;
 }
