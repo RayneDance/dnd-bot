@@ -59,17 +59,17 @@ dice = dice.toUpperCase();
 var args = dice.split('D');
 var results = '';
 	
-	if(args.length() === 1){
+	if(args.length === 1){
 		return 'Bad format';	
 	}
 
 	if(Number(args[0]) === 1){
 		results = Math.floor(Math.random() * args[1])+1;
 	}else{
-		for(var i=0; i=i+1; i < Number(args[0])){
+		for(var i=0; i < Number(args[0]); i = i+1){
 			
 			if(i>0){
-				results = results.concat(', ', Math.floor(Math.random() * args[1])+1);
+				results = results + ', '+ Math.floor(Math.random() * args[1])+1;
 			}else{ results = Math.floor(Math.random() * args[1])+1;}
 		}
 	}
