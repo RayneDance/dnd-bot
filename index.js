@@ -70,9 +70,10 @@ var results = '';
 	if(Number(args[0]) === 1){
 		results = Math.floor(Math.random() * args[1])+1;
 	}else{
+		var total = 0;
 		for(var i=0; i < Number(args[0]); i = i+1){
 			var hold = 0;
-			var total = 0;
+			
 			if(i>0){
 				hold = Math.floor(Math.random() * args[1])+1;
 				total = total + hold;
