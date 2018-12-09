@@ -71,9 +71,10 @@ var results = '';
 		results = Math.floor(Math.random() * args[1])+1;
 	}else{
 		for(var i=0; i < Number(args[0]); i = i+1){
-			
+			var hold = 0;
 			if(i>0){
-				results = results + ', '+ Math.floor(Math.random() * args[1])+1;
+				hold = Math.floor(Math.random() * args[1])+1;
+				results = results + ', '+ hold.toString(10);
 			}else{ results = Math.floor(Math.random() * args[1])+1;}
 		}
 	}
