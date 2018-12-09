@@ -30,6 +30,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
+			
+	    case 'help':
+			bot.sendMessage({
+				to:channelID,
+				message: 'Current commands: !roll #d#'
+			});
+	    break;
 
 
             case 'roll':
