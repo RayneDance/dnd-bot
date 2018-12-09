@@ -65,11 +65,14 @@ function rolldice(dice){
 	
 	if(typeof args[1] == 'undefined') args[1] = toString(args);
 	
+	//split out any dice modifiers
 	var sub = args[1].split('+');
 	var results = '';
 	var total = 0;	
 
-		
+		// We need to split out any modifiers.
+		// Sub 0 is the left side + in 2d6+2
+		// Before handling this, args 1 will include 6+2
 		if(sub.length > 1){
 			args[1] = sub[0];
 			sub = sub[1];
@@ -94,27 +97,24 @@ function rolldice(dice){
 			return 'Please submit a smaller number';
 		}
 	
-		//If we're only rolling 1d#, handle it.
+		// If we're only rolling 1d#, handle it.
+		// Do we need number in this if statement? *******************************
 		if(Number(args[0]) === 1 || args[0] == ""){
-			results = "Rolled: " + Number(RandNumber(args[1])) + "+" + sub;
+			results = "Rolled: " + RandNumber(args[1]) + "+" + sub;
 		}else{
 			//handling for rolling more than 1 dice.
+			results = RandNumber(args[1]);
+			total = results;
+			
 			for(var i=0; i < Number(args[0]); i = i+1){
 				var hold = 0;
 			
-			// I want to clean this up. We're adding a lot
-			// of execution time here.
-			// The else is run first time through to avoid
-			// adding in a ', ' before the first roll
-				if(i>0){
-					hold = RandNumber(args[1]);
-					total = total + hold;
-					results = results + ', '+ hold.toString(10);
-				}else{ 
-					results = RandNumber(args[1]);
-					total = results;
-					 }
+				hold = RandNumber(args[1]);
+				total = total + hold;
+				results = results + ', '+ hold.toString(10);
+				
 		}
+	// Long story short, I have the way JS handles these situations
 	var jssucks = parseInt(total);
 
 	total = jssucks + parseInt(sub);
@@ -124,6 +124,9 @@ function rolldice(dice){
 	return results;
 }
 
+// Wrapping our random number generation. Takes the limit and str flag as arguments.
+// If we want a number from 1 through 6, inclusive, we pass 6. If we want it returned
+// as a string, we pass something truthy to str.
 function RandNumber(lim, str){
 	
 		str = str || false;
