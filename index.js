@@ -25,6 +25,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
+              
+           case 'roll':
+              bot.sendMessage({
+                 to: channelID,
+                 message: args[1]
+              });
             // Just add any case commands if you want to..
          }
      }
