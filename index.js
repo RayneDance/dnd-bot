@@ -60,18 +60,31 @@ bot.on('message', function (user, userID, channelID, message, evt) {
       }
 });
 
+
+//Function to return a dice roll.
 function rolldice(dice){
 
+//So users can 1d6 or 1D6
 dice = dice.toUpperCase();
+
+//split and setup vars
 var args = dice.split('D');
 var results = '';
 var total = 0;	
-	if(args.length === 1){
+	
+	//Leave function on poorly formatted request.
+	if(isNaN(Number(args[0])) ||
+	isNaN(Number(args[1])) ||
+	args.length === 1){
 		return 'Bad format';	
 	}
 
 	if(Number(args[0]) > 10){
 		return 'Cannot roll more than 10 dice';
+	}
+	
+	if(Number(args[1]) > 10000){
+		return 'Please submit a smaller number';
 	}
 
 	if(Number(args[0]) === 1){
