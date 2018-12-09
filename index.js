@@ -63,9 +63,9 @@ var results = '';
 	}else{
 		for(var i=0; i++; i < Number(args[0])){
 			if(i>0){
-			result = result.concat(', ', Math.floor(Math.random() * args[1])+1);
-			}else{ result = Math.floor(Math.random() * args[1])+1;}
+			results = results.concat(', ', Math.floor(Math.random() * args[1])+1);
+			}else{ results = Math.floor(Math.random() * args[1])+1;}
 		}
 	}
-	return result;
+	return results;
 }
