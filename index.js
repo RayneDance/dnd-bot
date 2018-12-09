@@ -18,9 +18,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var dice = false;
 
         if(args.length > 1){
-
-	 dice = args[1];
-	};
+			dice = args[1];
+		};
 
         args = args.splice(1);
         switch(cmd) {
@@ -34,11 +33,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
 
             case 'roll':
- 
- 	      if(dice){
-               bot.sendMessage({
-                  to: channelID,
-                  message: dice
+				if(dice){
+					var result = rolldice(dice);
+					bot.sendMessage({
+					to: channelID,
+					message: result
                 });
  		}else{
   		bot.sendMessage({
@@ -53,3 +52,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
           }
       }
 });
+
+function rolldice(dice){
+
+var args = dice.split('d');
+var results = '';
+
+	if(Number(args[0]) === 1){
+		results = Math.floor(Math.random() * args[1])+1;
+	}else{
+		for(var i=0; i++; i < Number(args[0])){
+			if(i>0){
+			result = result.concat(', ', Math.floor(Math.random() * args[1])+1);
+			}else{ result = Math.floor(Math.random() * args[1])+1
+		}
+	}
+	return result;
+}
