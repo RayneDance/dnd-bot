@@ -9,6 +9,7 @@ var bot = new Discord.Client({
    autorun: true
 });
 bot.on('ready', function (evt) {
+	console.log('startup complete');
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -27,6 +28,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		
 		//Output available commands. We should clean this up.
 	    case 'help':
+				console.log('Outputting help message');
 				bot.sendMessage({
 				to:channelID,
 				message: help.HELPTEXT
@@ -34,20 +36,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	    break;
 
 
-        case 'roll':
-				if(dice){
-					var result = rolldice(dice);
+		case 'roll':
+			if(dice){
+				var result = rolldice(dice);
+				console.log('Diceroll:'+result);
 					bot.sendMessage({
 					to: channelID,
 					message: result
-					});
+					});//We need to move this to the dice roll handler.
 						}else{
 							bot.sendMessage({
 							to: channelID,
 							message: 'No dice value(IE: 1d6)'
 							});
 						} 
- 	   break;
+		break;
  
  
              // Just add any case commands if you want to..
