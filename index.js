@@ -1,5 +1,5 @@
 var Discord = require('discord.io');
-var dice = require('./dice.js');
+var dice = require('./dice');
 var auth = require('./auth.json');
 var help = require('./help.json');
 // Configure logger settings
