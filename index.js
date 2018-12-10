@@ -1,6 +1,6 @@
 var Discord = require('discord.io');
 var auth = require('./auth.json');
-var help = require('./auth.json');
+var help = require('./help.json');
 // Configure logger settings
 
 // Initialize Discord Bot
