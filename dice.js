@@ -1,5 +1,5 @@
 //Nodejs module for dice rolls
 
-exports.roll = function {
+exports.roll = function() {
 	console.log('Dice module test');
 };
