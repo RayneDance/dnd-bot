@@ -1,5 +1,6 @@
 var Discord = require('discord.io');
 var auth = require('./auth.json');
+var help = require('./auth.json');
 // Configure logger settings
 
 // Initialize Discord Bot
@@ -28,7 +29,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	    case 'help':
 				bot.sendMessage({
 				to:channelID,
-				message: 'Current commands: !roll #d#'
+				message: help.HELPTEXT
 			});
 	    break;
 
