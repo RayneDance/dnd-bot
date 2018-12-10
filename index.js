@@ -1,5 +1,5 @@
 var Discord = require('discord.io');
-var dice = require('./dice');
+var diceobj = require('./dice');
 var auth = require('./auth.json');
 var help = require('./help.json');
 // Configure logger settings
@@ -9,6 +9,7 @@ var bot = new Discord.Client({
    token: auth.TOKEN,
    autorun: true
 });
+
 bot.on('ready', function (evt) {
 	console.log('startup complete');
 });
@@ -30,7 +31,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		//Output available commands. We should clean this up.
 	    case 'help':
 				console.log('Outputting help message');
-				dice.roll();
+				diceobj.roll();
 				bot.sendMessage({
 				to:channelID,
 				message: help.HELPTEXT
