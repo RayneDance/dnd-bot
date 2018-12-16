@@ -1,5 +1,5 @@
 var Discord = require('discord.io');
-var diceobj = require('./dice');
+//var diceobj = require('./dice');
 var auth = require('./auth.json');
 var help = require('./help.json');
 // Configure logger settings
@@ -31,7 +31,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		//Output available commands. We should clean this up.
 	    case 'help':
 				console.log('Outputting help message');
-				diceobj.roll();
+				//diceobj.roll();
 				bot.sendMessage({
 				to:channelID,
 				message: help.HELPTEXT
