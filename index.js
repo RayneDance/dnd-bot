@@ -113,7 +113,8 @@ function rolldice(dice){
 			results = RandNumber(args[1]);
 			total = results;
 			
-			for(var i=0; i < Number(args[0]); i = i+1){
+			// Testing a fix for rolling extra
+			for(var i=1; i < Number(args[0]); i = i+1){
 				var hold = 0;
 			
 				hold = RandNumber(args[1]);
