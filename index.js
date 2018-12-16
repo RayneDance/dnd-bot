@@ -140,6 +140,7 @@ function RandNumber(lim, str){
 		str = str || false;
 		var randvalue = 0;
 		randvalue = Math.floor(Math.random() * lim)+1;
+		console.log("Random value: " + randvalue);
 		
 		if(str){
 			return randvalue.toString(10);
