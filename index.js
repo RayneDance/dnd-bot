@@ -54,6 +54,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							});
 						} 
 		break;
+		
+		case 'x1':
+			bot.sendMessage({
+				to: channelID,
+				message: result
+				});
+		break;
  
  
              // Just add any case commands if you want to..
