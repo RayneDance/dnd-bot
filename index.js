@@ -58,7 +58,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		case 'x1':
 			bot.sendMessage({
 				to: channelID,
-				message: result
+				message: "!1d6"
 				});
 		break;
  
