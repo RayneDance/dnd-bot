@@ -27,4 +27,9 @@ exports.module.dice = {
 		
 		this.takeninput = input.toUpperCase();
 	}//end checkFormat
+	
+	randNumber : function(limit, flag){
+		return 1;
+	}//end randNumber
+
 };
